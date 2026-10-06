@@ -19,13 +19,13 @@
   }
 
   .product-badges--top-left {
-    top: calc(var(--badge-inset) + var(--padding-block-start));
-    left: calc(var(--badge-inset) + var(--padding-inline-start));
+    top: 0;
+    left: 8px;
   }
 
   .product-badges--top-right {
-    top: calc(var(--badge-inset) + var(--padding-block-start));
-    right: calc(var(--badge-inset) + var(--padding-inline-start));
+    top: 0;
+    right: 8px;
   }
 
   .product-badges__badge {
@@ -47,5 +47,18 @@
   .product-badges__badge--rectangle {
     padding-block: var(--badge-rectangle-padding-block);
     padding-inline: var(--badge-rectangle-padding-inline);
+  }
+
+  .product-badges__image {
+    display: block;
+    width: 48px;
+    height: auto;
+    object-fit: contain;
+  }
+
+  @media screen and (min-width: 750px) {
+    .product-badges__image {
+      width: 56px;
+    }
   }
 {% endstylesheet %}

@@ -1534,6 +1534,11 @@
         "default": 40
       },
       {
+        "type": "image_picker",
+        "id": "best_seller_badge_image",
+        "label": "t:settings.image"
+      },
+      {
         "type": "header",
         "content": "t:settings.colors"
       },

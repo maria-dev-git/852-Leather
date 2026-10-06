@@ -21,6 +21,7 @@
     section--{{ section.settings.section_width }}
     {% if section.settings.full_width_on_mobile %}section--mobile-full-width{% endif %}
     {% if section.settings.bento_on_mobile %}collection-list--bento-mobile{% endif %}
+    {% if section.settings.product_card_hover_effect %}collection-list--product-card-hover{% endif %}
     color-{{ section.settings.color_scheme }}
     section-resource-list
     spacing-style
@@ -72,6 +73,19 @@
 </div>
 
 {% stylesheet %}
+  @media (any-pointer: fine) and (prefers-reduced-motion: no-preference) {
+    .collection-list--product-card-hover .collection-card:hover {
+      transform: scale(var(--hover-scale-amount));
+    }
+
+    .card-hover-effect-subtle-zoom
+      .collection-list--product-card-hover
+      .collection-card:hover
+      .collection-card__image {
+      transform: none;
+    }
+  }
+
   @media screen and (max-width: 749px) {
     .section-resource-list.section--mobile-full-width.collection-list--bento-mobile
       > .section-resource-list__content {
@@ -312,6 +326,12 @@
     {
       "type": "header",
       "content": "t:content.section_layout"
+    },
+    {
+      "type": "checkbox",
+      "id": "product_card_hover_effect",
+      "label": "t:settings.card_hover_effect",
+      "default": false
     },
     {
       "type": "select",

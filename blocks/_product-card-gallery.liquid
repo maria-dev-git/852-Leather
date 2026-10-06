@@ -2,6 +2,14 @@
 
 {% assign product = closest.product %}
 
+{% liquid
+  assign product_collection_handles = product.collections | map: 'handle'
+  assign show_best_seller_badge = false
+  if product_collection_handles contains 'best-sellers' and settings.best_seller_badge_image != blank
+    assign show_best_seller_badge = true
+  endif
+%}
+
 {% capture children %}
   {% unless product == blank %}
     <div
@@ -24,6 +32,15 @@
             {{ 'content.product_badge_sale' | t }}
           {%- endif -%}
         </div>
+      {%- elsif show_best_seller_badge -%}
+        {{ settings.best_seller_badge_image
+          | image_url: width: 240
+          | image_tag:
+            widths: '64, 96, 128, 160, 240',
+            sizes: '(max-width: 749px) 64px, 80px',
+            class: 'product-badges__image',
+            loading: 'lazy'
+        }}
       {%- endif -%}
     </div>
     {%  if settings.quick_add or settings.mobile_quick_add %}
