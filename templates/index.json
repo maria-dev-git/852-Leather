@@ -290,7 +290,7 @@
       "block_order": [
         "group_kRCnge"
       ],
-      "name": "t:names.collections_bento",
+      "name": "Shop by Collection",
       "settings": {
         "collection_list": [
           "shoulder-bags",
@@ -492,7 +492,7 @@
           ]
         }
       },
-      "name": "t:names.products_carousel",
+      "name": "Best Sellers",
       "settings": {
         "collection": "best-sellers",
         "layout_type": "grid",
@@ -510,13 +510,122 @@
         "gap": 28,
         "color_scheme": "scheme-1",
         "padding-block-start": 48,
-        "padding-block-end": 48
+        "padding-block-end": 56
+      }
+    },
+    "hero_pLHNTj": {
+      "type": "hero",
+      "blocks": {
+        "text_jWWTPh": {
+          "type": "text",
+          "settings": {
+            "text": "<h3>Why Choose 852Leather?</h3>",
+            "width": "fit-content",
+            "max_width": "narrow",
+            "alignment": "left",
+            "type_preset": "h2",
+            "font": "var(--font-body--family)",
+            "font_size": "1rem",
+            "line_height": "normal",
+            "letter_spacing": "normal",
+            "case": "none",
+            "wrap": "pretty",
+            "color": "var(--color-foreground)",
+            "background": false,
+            "background_color": "#00000026",
+            "corner_radius": 0,
+            "padding-block-start": 0,
+            "padding-block-end": 0,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
+          },
+          "blocks": {}
+        },
+        "text_KLAgFx": {
+          "type": "text",
+          "settings": {
+            "text": "<p><strong>Handmade in the USA</strong><br/>Every piece is handcrafted by a single maker in the USA, from selecting the leather to cutting, sewing, and finishing.</p><p><strong>Made Just for You</strong><br/>Your bag is made after you order and can be customized with your preferred leather, color, and hardware.</p><p><strong>Full-Grain Leather</strong><br/>Our carefully selected full-grain genuine leather has natural character and develops a unique look beautifully over time.</p>",
+            "width": "100%",
+            "max_width": "normal",
+            "alignment": "left",
+            "type_preset": "h5",
+            "font": "var(--font-body--family)",
+            "font_size": "1rem",
+            "line_height": "normal",
+            "letter_spacing": "normal",
+            "case": "none",
+            "wrap": "pretty",
+            "color": "var(--color-foreground)",
+            "background": false,
+            "background_color": "#00000026",
+            "corner_radius": 0,
+            "padding-block-start": 0,
+            "padding-block-end": 32,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
+          },
+          "blocks": {}
+        },
+        "button_GqwHCy": {
+          "type": "button",
+          "name": "t:names.button",
+          "settings": {
+            "label": "ABOUT US",
+            "link": "shopify://pages/about-us",
+            "open_in_new_tab": false,
+            "style_class": "button",
+            "width": "fit-content",
+            "custom_width": 100,
+            "width_mobile": "fit-content",
+            "custom_width_mobile": 100
+          },
+          "blocks": {}
+        }
+      },
+      "block_order": [
+        "text_jWWTPh",
+        "text_KLAgFx",
+        "button_GqwHCy"
+      ],
+      "name": "t:names.hero",
+      "settings": {
+        "media_type_1": "image",
+        "image_1": "shopify://shop_images/il_fullxfull.7645254190_6ytd.jpg",
+        "media_type_2": "image",
+        "stack_media_on_mobile": false,
+        "custom_mobile_media": false,
+        "media_type_1_mobile": "image",
+        "media_type_2_mobile": "image",
+        "link": "",
+        "open_in_new_tab": false,
+        "content_direction": "column",
+        "vertical_on_mobile": true,
+        "horizontal_alignment": "flex-start",
+        "vertical_alignment": "center",
+        "align_baseline": false,
+        "horizontal_alignment_flex_direction_column": "flex-start",
+        "vertical_alignment_flex_direction_column": "center",
+        "gap": 16,
+        "section_width": "page-width",
+        "constrain_section_width": true,
+        "section_height": "large",
+        "section_height_custom": 75,
+        "color_scheme": "scheme-6",
+        "toggle_overlay": true,
+        "overlay_color": "#00000026",
+        "overlay_style": "gradient",
+        "gradient_direction": "to top",
+        "blurred_reflection": false,
+        "reflection_opacity": 75,
+        "padding-block-start": 0,
+        "padding-block-end": 0
       }
     }
   },
   "order": [
     "hero_irjTFL",
     "collection_list_KwY7iA",
-    "product_list_fJEFyB"
+    "product_list_fJEFyB",
+    "hero_pLHNTj"
   ]
 }

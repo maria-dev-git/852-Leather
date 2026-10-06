@@ -452,7 +452,7 @@
 
 <div
   id="Hero-{{ section.id }}"
-  class="hero color-{{ section.settings.color_scheme }}{% if section.blocks.size == 0 and section.settings.section_height == 'auto' %} hero--no-blocks-auto-height{% endif %}{% if section.settings.stack_media_on_mobile %} hero--stack-mobile{% endif %}"
+  class="hero color-{{ section.settings.color_scheme }}{% if section.blocks.size == 0 and section.settings.section_height == 'auto' %} hero--no-blocks-auto-height{% endif %}{% if section.settings.stack_media_on_mobile %} hero--stack-mobile{% endif %}{% if section.settings.section_width == 'page-width' and section.settings.constrain_section_width %} section section--page-width{% endif %}"
   style="
     --hero-border-style: {{ section.settings.border }};
     --hero-border-width: {{ section.settings.border_width }}px;
@@ -1095,6 +1095,13 @@
         }
       ],
       "default": "page-width"
+    },
+    {
+      "type": "checkbox",
+      "id": "constrain_section_width",
+      "label": "t:settings.limit_content_width",
+      "default": false,
+      "visible_if": "{{ section.settings.section_width == 'page-width' }}"
     },
     {
       "type": "select",
