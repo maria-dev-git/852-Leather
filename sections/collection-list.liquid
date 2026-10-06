@@ -19,6 +19,8 @@
   class="
     section
     section--{{ section.settings.section_width }}
+    {% if section.settings.full_width_on_mobile %}section--mobile-full-width{% endif %}
+    {% if section.settings.bento_on_mobile %}collection-list--bento-mobile{% endif %}
     color-{{ section.settings.color_scheme }}
     section-resource-list
     spacing-style
@@ -68,6 +70,15 @@
     test_id: 'collections-list-grid'
   %}
 </div>
+
+{% stylesheet %}
+  @media screen and (max-width: 749px) {
+    .section-resource-list.section--mobile-full-width.collection-list--bento-mobile
+      > .section-resource-list__content {
+      padding-inline: var(--page-margin);
+    }
+  }
+{% endstylesheet %}
 
 {% schema %}
 {
@@ -317,6 +328,13 @@
         }
       ],
       "default": "page-width"
+    },
+    {
+      "type": "checkbox",
+      "id": "full_width_on_mobile",
+      "label": "t:settings.full_width_on_mobile",
+      "default": false,
+      "visible_if": "{{ section.settings.section_width == 'page-width' }}"
     },
     {
       "type": "range",

@@ -1,7 +1,7 @@
 {%- doc -%}
   Displays product images in a carousel.
   Settings allow for a full slideshow, showing only the first image, or showing the second image when hovering.
-  Note: When the product card itself is in a carousel layout, the card-gallery's carousel is disabled with JavaScript.
+  When nested in a carousel, card-gallery arrows remain active while drag gestures are handled by the parent carousel.
 
   @param [children] - Additional content rendered below the card gallery
   @param [section] - The section object the snippet is rendered in
@@ -152,7 +152,7 @@
         endfor
       endcapture
 
-      assign slideshow_attributes = 'data-generic-media-size="[generic_media_size]"' | replace: '[generic_media_size]', generic_media_size
+      assign slideshow_attributes = 'data-generic-media-size="[generic_media_size]" nested-controls-enabled' | replace: '[generic_media_size]', generic_media_size
       if settings.product_card_carousel == false
         assign slideshow_attributes = slideshow_attributes | append: ' disabled="true"'
       endif

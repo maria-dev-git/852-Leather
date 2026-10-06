@@ -120,8 +120,8 @@
   }
 
   @media screen and (max-width: 749px) {
-    .product-card slideshow-arrows .slideshow-control {
-      display: none;
+    .product-card slideshow-component[nested-controls-enabled] slideshow-arrows .slideshow-control {
+      opacity: 1;
     }
   }
 {% endstylesheet %}

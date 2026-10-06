@@ -560,7 +560,10 @@ export class Slideshow extends Component {
 
     this.#updateControlsVisibility();
 
-    this.disabled = this.isNested || this.disabled;
+    // Nested card galleries may expose arrow controls while leaving drag gestures
+    // to their parent carousel.
+    const nestedControlsEnabled = this.hasAttribute('nested-controls-enabled');
+    this.disabled = (this.isNested && !nestedControlsEnabled) || this.disabled;
 
     this.resume();
 
@@ -676,6 +679,10 @@ export class Slideshow extends Component {
     if (!slides || slides.length <= 1) return;
     if (!(event.target instanceof Element)) return;
     if (this.disabled || this.#dragging) return;
+
+    // Keep horizontal drag assigned to the parent carousel. Arrow-button clicks
+    // can still select slides in this nested gallery.
+    if (this.isNested && this.hasAttribute('nested-controls-enabled')) return;
 
     // Check if the event target is within a 3D model interactive element
     // This prevents the slideshow from capturing drag events when interacting with 3D models
