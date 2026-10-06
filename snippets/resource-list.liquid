@@ -32,6 +32,7 @@
   - bento_gap: Gap for bento layout in pixels
   - mobile_card_size: Mobile card size for carousel
   - carousel_on_mobile: Boolean for mobile carousel fallback
+  - bento_on_mobile: Boolean for mobile bento fallback when the desktop layout is a carousel
 {%- enddoc -%}
 
 {% liquid
@@ -104,6 +105,9 @@
     {% if settings.carousel_on_mobile and settings.layout_type != 'carousel' %}
       hidden--mobile
     {% endif %}
+    {% if settings.bento_on_mobile and settings.layout_type == 'carousel' %}
+      hidden--mobile
+    {% endif %}
     {{ resource_list_classes }}
   "
   style="{{ resource_list_styles }}"
@@ -138,6 +142,19 @@
       {% endcase %}
   {% endcase %}
 </div>
+
+{% comment %} Mobile bento layout for desktop carousels {% endcomment %}
+{% if settings.layout_type == 'carousel' and settings.bento_on_mobile %}
+  <div
+    class="resource-list resource-list--bento hidden--desktop"
+    style="
+      --resource-list-column-gap-desktop: {{ settings.bento_gap | default: 16 }}px;
+      --bento-gap: var(--resource-list-column-gap);
+    "
+  >
+    {% render 'bento-grid', items: list_items_array %}
+  </div>
+{% endif %}
 
 {% comment %} Mobile carousel for non-carousel layouts {% endcomment %}
 {% if settings.layout_type != 'carousel' and settings.carousel_on_mobile %}

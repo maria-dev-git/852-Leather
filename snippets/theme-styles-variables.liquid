@@ -352,6 +352,16 @@
       endfor
     %}
 
+    @media screen and (max-width: 749px) {
+      {% liquid
+        for preset_name in type_presets
+          assign mobile_size_setting = 'type_size_mobile_[preset_name]' | replace: '[preset_name]', preset_name
+          assign mobile_size_rem = settings[mobile_size_setting] | divided_by: 16.0
+          echo '--font-size--[preset_name]: [mobile_size_rem]rem;' | replace: '[preset_name]', preset_name | replace: '[mobile_size_rem]', mobile_size_rem
+        endfor
+      %}
+    }
+
     /* Hardcoded font sizes */
     --font-size--3xs: 0.625rem;
     --font-size--2xs: 0.75rem;
