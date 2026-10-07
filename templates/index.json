@@ -38,32 +38,6 @@
           },
           "blocks": {}
         },
-        "text_GENVzK": {
-          "type": "text",
-          "name": "t:names.text",
-          "settings": {
-            "text": "<p>Each piece from 852 Leather is carefully crafted by a single maker, not a factory. Your bag begins production only after you place your order.</p>",
-            "width": "fit-content",
-            "max_width": "normal",
-            "alignment": "left",
-            "type_preset": "h4",
-            "font": "var(--font-body--family)",
-            "font_size": "1rem",
-            "line_height": "normal",
-            "letter_spacing": "normal",
-            "case": "none",
-            "wrap": "pretty",
-            "color": "var(--color-foreground-heading)",
-            "background": false,
-            "background_color": "#00000026",
-            "corner_radius": 0,
-            "padding-block-start": 0,
-            "padding-block-end": 0,
-            "padding-inline-start": 0,
-            "padding-inline-end": 0
-          },
-          "blocks": {}
-        },
         "text_HB7b9U": {
           "type": "text",
           "name": "t:names.heading",
@@ -80,6 +54,32 @@
             "case": "none",
             "wrap": "pretty",
             "color": "var(--color-foreground)",
+            "background": false,
+            "background_color": "#00000026",
+            "corner_radius": 0,
+            "padding-block-start": 0,
+            "padding-block-end": 0,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
+          },
+          "blocks": {}
+        },
+        "text_GENVzK": {
+          "type": "text",
+          "name": "t:names.text",
+          "settings": {
+            "text": "<p>Each piece from 852 Leather is carefully crafted by a single maker, not a factory. Your bag begins production only after you place your order.</p>",
+            "width": "fit-content",
+            "max_width": "normal",
+            "alignment": "left",
+            "type_preset": "h4",
+            "font": "var(--font-body--family)",
+            "font_size": "1rem",
+            "line_height": "normal",
+            "letter_spacing": "normal",
+            "case": "none",
+            "wrap": "pretty",
+            "color": "var(--color-foreground-heading)",
             "background": false,
             "background_color": "#00000026",
             "corner_radius": 0,
@@ -108,8 +108,8 @@
       },
       "block_order": [
         "text_VPGFRg",
-        "text_GENVzK",
         "text_HB7b9U",
+        "text_GENVzK",
         "button_NqJaJE"
       ],
       "custom_css": [
@@ -594,7 +594,7 @@
       "name": "t:names.hero",
       "settings": {
         "media_type_1": "image",
-        "image_1": "shopify://shop_images/il_fullxfull.7645254190_6ytd.jpg",
+        "image_1": "shopify://shop_images/il_fullxfull.7645254190.jpg",
         "media_type_2": "image",
         "stack_media_on_mobile": false,
         "custom_mobile_media": false,
@@ -623,8 +623,8 @@
         "reflection_opacity": 75,
         "padding-block-start": 0,
         "padding-block-end": 0,
-        "padding-inline-start": 0,
-        "padding-inline-end": 0
+        "padding-inline-start": 120,
+        "padding-inline-end": 120
       }
     }
   },

@@ -2165,6 +2165,19 @@
       },
       {
         "type": "header",
+        "content": "t:names.product_title"
+      },
+      {
+        "type": "range",
+        "id": "product_card_title_lines_mobile",
+        "label": "t:names.count",
+        "min": 1,
+        "max": 4,
+        "step": 1,
+        "default": 2
+      },
+      {
+        "type": "header",
         "content": "t:settings.media"
       },
       {

@@ -3955,12 +3955,12 @@ text-component {
 
 /* Product card title truncation - applied on mobile regardless of view */
 @media screen and (max-width: 749px) {
-  :is(.product-card, .product-grid__card) :is(h4, .h4) {
+  :is(.product-card, .product-grid__card) :is(h4, .h4, [role='heading'][aria-level='3']) {
     display: -webkit-box;
     -webkit-box-orient: vertical;
     overflow: hidden;
     text-overflow: ellipsis;
-    -webkit-line-clamp: 3;
+    -webkit-line-clamp: var(--product-card-title-lines-mobile, 2);
   }
 }
 
