@@ -53,6 +53,38 @@
       "visible_if": "{{ section.settings.content_direction == 'row' }}"
     },
     {
+      "type": "checkbox",
+      "id": "reverse_on_mobile",
+      "label": "t:options.reverse",
+      "default": false,
+      "visible_if": "{{ section.settings.content_direction == 'row' and section.settings.vertical_on_mobile }}"
+    },
+    {
+      "type": "select",
+      "id": "mobile_text_alignment",
+      "label": "t:settings.alignment_mobile",
+      "options": [
+        {
+          "value": "default",
+          "label": "t:options.default"
+        },
+        {
+          "value": "left",
+          "label": "t:options.left"
+        },
+        {
+          "value": "center",
+          "label": "t:options.center"
+        },
+        {
+          "value": "right",
+          "label": "t:options.right"
+        }
+      ],
+      "default": "default",
+      "visible_if": "{{ section.settings.content_direction == 'row' and section.settings.vertical_on_mobile }}"
+    },
+    {
       "type": "select",
       "id": "horizontal_alignment",
       "label": "t:settings.alignment",

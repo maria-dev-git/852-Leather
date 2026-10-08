@@ -2614,6 +2614,10 @@ form.payment-terms {
     justify-content: var(--vertical-alignment-mobile);
   }
 
+  .mobile-column.mobile-column--reverse {
+    flex-flow: column-reverse nowrap;
+  }
+
   .layout-panel-flex--row:not(.mobile-column) {
     flex-wrap: var(--flex-wrap-mobile);
     height: auto;

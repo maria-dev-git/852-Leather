@@ -14,6 +14,7 @@
 %}
 
 <span
+  class="add-to-cart-block"
   {{ block.shopify_attributes }}
   style="--add-to-cart-font-case: {{ settings.button_text_case }};"
 >
@@ -26,6 +27,21 @@
     data_testid: 'standalone-add-to-cart'
   %}
 </span>
+
+{% stylesheet %}
+  .add-to-cart-block .add-to-cart-button.button {
+    font-size: 1rem;
+    padding-block: 8px;
+    text-transform: uppercase;
+  }
+
+  @media screen and (min-width: 750px) {
+    .add-to-cart-block .add-to-cart-button.button {
+      font-size: 1.125rem;
+      padding-block: var(--button-padding-block);
+    }
+  }
+{% endstylesheet %}
 
 {% schema %}
 {

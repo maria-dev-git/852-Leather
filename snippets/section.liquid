@@ -53,6 +53,8 @@
         layout-panel-flex--{{ section.settings.content_direction }}
         section-content-wrapper
         {% if section.settings.vertical_on_mobile %} mobile-column{% endif %}
+        {% if section.settings.vertical_on_mobile and section.settings.reverse_on_mobile %} mobile-column--reverse{% endif %}
+        {% if section.settings.mobile_text_alignment != blank and section.settings.mobile_text_alignment != 'default' %} section-content-wrapper--mobile-text-{{ section.settings.mobile_text_alignment }}{% endif %}
       "
       style="
         {% render 'layout-panel-style', settings: section.settings %}
@@ -93,5 +95,55 @@
 
   .custom-section-content {
     z-index: var(--layer-flat);
+  }
+
+  @media screen and (max-width: 749px) {
+    .section-content-wrapper--mobile-text-left,
+    .section-content-wrapper--mobile-text-left .group-block-content {
+      --horizontal-alignment: flex-start !important;
+
+      align-items: flex-start;
+    }
+
+    .section-content-wrapper--mobile-text-left .text-block > * {
+      text-align: left;
+    }
+
+    .section-content-wrapper--mobile-text-left .text-block,
+    .section-content-wrapper--mobile-text-left .text-block > * {
+      margin-inline: 0 auto;
+    }
+
+    .section-content-wrapper--mobile-text-center,
+    .section-content-wrapper--mobile-text-center .group-block-content {
+      --horizontal-alignment: center !important;
+
+      align-items: center;
+    }
+
+    .section-content-wrapper--mobile-text-center .text-block > * {
+      text-align: center;
+    }
+
+    .section-content-wrapper--mobile-text-center .text-block,
+    .section-content-wrapper--mobile-text-center .text-block > * {
+      margin-inline: auto;
+    }
+
+    .section-content-wrapper--mobile-text-right,
+    .section-content-wrapper--mobile-text-right .group-block-content {
+      --horizontal-alignment: flex-end !important;
+
+      align-items: flex-end;
+    }
+
+    .section-content-wrapper--mobile-text-right .text-block > * {
+      text-align: right;
+    }
+
+    .section-content-wrapper--mobile-text-right .text-block,
+    .section-content-wrapper--mobile-text-right .text-block > * {
+      margin-inline: auto 0;
+    }
   }
 {% endstylesheet %}
