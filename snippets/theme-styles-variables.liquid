@@ -130,7 +130,7 @@
     --normal-content-width: 42rem;
     --wide-content-width: 46rem;
     --narrow-page-width: 90rem;
-    --normal-page-width: 120rem;
+    --normal-page-width: 100rem;
     --wide-page-width: 150rem;
 
     /* Section Heights */
@@ -610,6 +610,7 @@
     --button-text-case-secondary: {{ settings.button_text_case_secondary }};
 
     /* Product cards */
+    --product-card-title-lines: {{ settings.product_card_title_lines | default: 2 }};
     --product-card-title-lines-mobile: {{ settings.product_card_title_lines_mobile | default: 2 }};
 
     /* Borders */

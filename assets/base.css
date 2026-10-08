@@ -2559,6 +2559,13 @@ form.payment-terms {
   font-size: var(--font-size);
 }
 
+@media screen and (max-width: 749px) {
+  .custom-font-size,
+  .custom-font-size > * {
+    font-size: var(--font-size-mobile, var(--font-size));
+  }
+}
+
 .custom-font-weight,
 .custom-font-weight > * {
   font-weight: var(--font-weight);
@@ -3944,16 +3951,15 @@ text-component {
   }
 }
 
-/* Product card title truncation - applied only to zoom-out view */
-[product-grid-view='zoom-out'] :is(.product-card, .product-grid__card) :is(h4, .h4) {
+/* Product card title truncation */
+:is(.product-card, .product-grid__card) :is(h4, .h4, [role='heading'][aria-level='3']) {
   display: -webkit-box;
   -webkit-box-orient: vertical;
   overflow: hidden;
   text-overflow: ellipsis;
-  -webkit-line-clamp: 3;
+  -webkit-line-clamp: var(--product-card-title-lines, 2);
 }
 
-/* Product card title truncation - applied on mobile regardless of view */
 @media screen and (max-width: 749px) {
   :is(.product-card, .product-grid__card) :is(h4, .h4, [role='heading'][aria-level='3']) {
     display: -webkit-box;

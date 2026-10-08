@@ -7,7 +7,18 @@
   @param {object} product - The current product object (used to determine selected variant state).
 {%- enddoc -%}
 
-{% assign block_settings = block.settings %}
+{% liquid
+  assign block_settings = block.settings
+  assign desktop_variant_style = block_settings.variant_style
+  assign mobile_variant_style = block_settings.variant_style_mobile | default: desktop_variant_style
+  assign picker_styles = desktop_variant_style
+
+  if mobile_variant_style != desktop_variant_style
+    assign picker_styles = picker_styles | append: ',' | append: mobile_variant_style
+  endif
+
+  assign picker_styles = picker_styles | split: ','
+%}
 
 {% unless product_resource.has_only_default_variant %}
   {% liquid
@@ -25,6 +36,8 @@
     data-product-id="{{ product_resource.id }}"
     data-block-id="{{ block.id }}"
     data-product-url="{{ product_resource.url }}"
+    data-desktop-variant-style="{{ desktop_variant_style }}"
+    data-mobile-variant-style="{{ mobile_variant_style }}"
     ref="mainVariantPicker"
     {% if product.id == product_resource.id %}
       data-template-product-match="true"
@@ -34,14 +47,25 @@
       data-shopify-visual-preview
     {% endif %}
   >
-    <form class="variant-picker__form">
+    {%- for picker_style in picker_styles -%}
+      {%- liquid
+        if picker_styles.size == 1
+          assign picker_context = 'all'
+        elsif forloop.first
+          assign picker_context = 'desktop'
+        else
+          assign picker_context = 'mobile'
+        endif
+        assign picker_form_index = forloop.index0
+      -%}
+    <form class="variant-picker__form variant-picker__form--{{ picker_context }}" data-variant-picker-form="{{ picker_context }}">
       {%- for product_option in product_resource.options_with_values -%}
         {%- liquid
           assign swatch_count = product_option.values | map: 'swatch' | compact | size
-          assign variant_style = block_settings.variant_style
+          assign variant_style = picker_style
 
           if swatch_count > 0 and block_settings.show_swatches
-            if block_settings.variant_style == 'dropdown'
+            if picker_style == 'dropdowns'
               assign variant_style = 'swatch_dropdown'
             else
               assign variant_style = 'swatch'
@@ -68,8 +92,8 @@
               {{- product_option.selected_value -}}
             </span>
           </div>
-        {%- elsif variant_style == 'swatch' or block_settings.variant_style == 'buttons' -%}
-          {%- assign fieldset_index = forloop.index0 -%}
+        {%- elsif variant_style == 'swatch' or picker_style == 'buttons' -%}
+          {%- assign fieldset_index = picker_form_index | times: product_resource.options.size | plus: forloop.index0 -%}
           <fieldset
             class="variant-option variant-option--buttons{% if variant_style == 'swatch' %} variant-option--swatches{% else %} variant-option--{{ settings.variant_button_width }}{% endif %}"
             data-fieldset-index="{{ fieldset_index }}"
@@ -91,7 +115,7 @@
               >
                 <input
                   type="radio"
-                  name="{{ product_option.name | escape }}-{{ block.id }}-{{ product_resource.id }}"
+                  name="{{ product_option.name | escape }}-{{ block.id }}-{{ product_resource.id }}-{{ picker_context }}"
                   value="{{ product_option_value | escape }}"
                   aria-label="{{ product_option_value.name | escape }}{% if product_option_value.available == false %} - {{ 'products.product.sold_out' | t }}{% endif %}"
                   {% if product_option_value.available == false %}
@@ -155,7 +179,7 @@
               {% endstyle %}
             {% endif %}
           </fieldset>
-        {%- elsif block_settings.variant_style == 'dropdowns' -%}
+        {%- elsif picker_style == 'dropdowns' or variant_style == 'swatch_dropdown' -%}
           {%
             # There is an opportunity to build a custom select component that will allow us to style the select element further (animation for dropdown, swatches shown in the dropdown options, etc)
             # It's too bad as it mean rebuilding baked in behaviours but I think we've already done that for the locale selectors
@@ -171,7 +195,7 @@
           %}
 
           <div class="variant-option variant-option--dropdowns">
-            <label for="Option-{{ block.id }}-{{ forloop.index0 }}">{{ product_option.name | escape }}</label>
+            <label for="Option-{{ block.id }}-{{ picker_context }}-{{ forloop.index0 }}">{{ product_option.name | escape }}</label>
             <div
               class="variant-option__select-wrapper"
               style="
@@ -181,7 +205,7 @@
               "
             >
               <select
-                id="Option-{{ block.id }}-{{ forloop.index0 }}"
+                id="Option-{{ block.id }}-{{ picker_context }}-{{ forloop.index0 }}"
                 name="options[{{ product_option.name | escape }}]"
                 class="variant-option__select"
               >
@@ -216,11 +240,11 @@
           </div>
         {%- endif -%}
       {%- endfor -%}
-
+    </form>
+    {%- endfor -%}
       <script type="application/json">
         {{ product_resource.selected_or_first_available_variant | json }}
       </script>
-    </form>
   </variant-picker>
 {% endunless %}
 
@@ -232,6 +256,20 @@
 
   .variant-picker__form {
     width: 100%;
+  }
+
+  .variant-picker__form--desktop {
+    display: none;
+  }
+
+  @media screen and (min-width: 750px) {
+    .variant-picker__form--desktop {
+      display: block;
+    }
+
+    .variant-picker__form--mobile {
+      display: none;
+    }
   }
 
   .variant-picker[data-shopify-visual-preview] {

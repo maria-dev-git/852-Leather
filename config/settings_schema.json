@@ -2169,8 +2169,17 @@
       },
       {
         "type": "range",
+        "id": "product_card_title_lines",
+        "label": "t:settings.size",
+        "min": 1,
+        "max": 4,
+        "step": 1,
+        "default": 2
+      },
+      {
+        "type": "range",
         "id": "product_card_title_lines_mobile",
-        "label": "t:names.count",
+        "label": "t:settings.size_mobile",
         "min": 1,
         "max": 4,
         "step": 1,

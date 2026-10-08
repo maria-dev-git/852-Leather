@@ -23,6 +23,9 @@ export default class VariantPicker extends Component {
   /** @type {AbortController | undefined} */
   #abortController;
 
+  /** @type {AbortController | undefined} */
+  #lifecycleAbortController;
+
   /** @type {number[][]} */
   #checkedIndices = [];
 
@@ -33,24 +36,35 @@ export default class VariantPicker extends Component {
 
   connectedCallback() {
     super.connectedCallback();
+    this.#cacheRadioState();
+    this.#lifecycleAbortController = new AbortController();
+    this.addEventListener('change', this.variantChanged.bind(this), { signal: this.#lifecycleAbortController.signal });
+    this.#resizeObserver.observe(this);
+  }
+
+  updatedCallback() {
+    super.updatedCallback();
+    this.#cacheRadioState();
+    this.updateVariantPickerCss();
+  }
+
+  #cacheRadioState() {
     const fieldsets = /** @type {HTMLFieldSetElement[]} */ (this.refs.fieldsets || []);
+    this.#radios = [];
+    this.#checkedIndices = [];
 
     fieldsets.forEach((fieldset) => {
       const radios = Array.from(fieldset?.querySelectorAll('input') ?? []);
       this.#radios.push(radios);
 
       const initialCheckedIndex = radios.findIndex((radio) => radio.dataset.currentChecked === 'true');
-      if (initialCheckedIndex !== -1) {
-        this.#checkedIndices.push([initialCheckedIndex]);
-      }
+      this.#checkedIndices.push(initialCheckedIndex === -1 ? [] : [initialCheckedIndex]);
     });
-
-    this.addEventListener('change', this.variantChanged.bind(this));
-    this.#resizeObserver.observe(this);
   }
 
   disconnectedCallback() {
     super.disconnectedCallback();
+    this.#lifecycleAbortController?.abort();
     this.#resizeObserver.disconnect();
   }
 
@@ -67,6 +81,7 @@ export default class VariantPicker extends Component {
     if (!selectedOption) return;
 
     this.updateSelectedOption(event.target);
+    this.#syncMatchingOption(selectedOption);
     this.dispatchEvent(new VariantSelectedEvent({
       id: selectedOption.dataset.optionValueId ?? '',
     }));
@@ -193,11 +208,12 @@ export default class VariantPicker extends Component {
     }
 
     if (target instanceof HTMLInputElement) {
-      const fieldsetIndex = Number.parseInt(target.dataset.fieldsetIndex || '');
+      const fieldsets = /** @type {HTMLFieldSetElement[]} */ (this.refs.fieldsets || []);
+      const targetFieldset = target.closest('fieldset');
+      const fieldsetIndex = targetFieldset instanceof HTMLFieldSetElement ? fieldsets.indexOf(targetFieldset) : -1;
       const inputIndex = Number.parseInt(target.dataset.inputIndex || '');
 
-      if (!Number.isNaN(fieldsetIndex) && !Number.isNaN(inputIndex)) {
-        const fieldsets = /** @type {HTMLFieldSetElement[]} */ (this.refs.fieldsets || []);
+      if (fieldsetIndex !== -1 && !Number.isNaN(inputIndex)) {
         const fieldset = fieldsets[fieldsetIndex];
         const checkedIndices = this.#checkedIndices[fieldsetIndex];
         const radios = this.#radios[fieldsetIndex];
@@ -248,6 +264,36 @@ export default class VariantPicker extends Component {
       }
 
       newSelectedOption.setAttribute('selected', 'selected');
+    }
+  }
+
+  /**
+   * Keeps the inactive responsive picker representation aligned with the active one.
+   * @param {HTMLElement} selectedOption
+   */
+  #syncMatchingOption(selectedOption) {
+    const optionValueId = selectedOption.dataset.optionValueId;
+    if (!optionValueId) return;
+
+    const matchingOptions = Array.from(this.querySelectorAll('[data-option-value-id]')).filter(
+      (option) => option instanceof HTMLElement && option.dataset.optionValueId === optionValueId
+    );
+
+    for (const option of matchingOptions) {
+      if (option === selectedOption) continue;
+
+      if (option instanceof HTMLInputElement) {
+        option.checked = true;
+      } else if (option instanceof HTMLOptionElement) {
+        const select = option.parentElement;
+        if (!(select instanceof HTMLSelectElement)) continue;
+
+        for (const selectOption of select.options) {
+          selectOption.removeAttribute('selected');
+        }
+        option.setAttribute('selected', 'selected');
+        select.value = option.value;
+      }
     }
   }
 
@@ -457,7 +503,7 @@ export default class VariantPicker extends Component {
    * @returns {HTMLInputElement | HTMLOptionElement | undefined} The selected option.
    */
   get selectedOption() {
-    const selectedOption = this.querySelector('select option[selected], fieldset input:checked');
+    const selectedOption = this.activeForm?.querySelector('select option[selected], fieldset input:checked');
 
     if (!(selectedOption instanceof HTMLInputElement || selectedOption instanceof HTMLOptionElement)) {
       return undefined;
@@ -487,8 +533,10 @@ export default class VariantPicker extends Component {
    * @returns {string[]} The selected options values.
    */
   get selectedOptionsValues() {
-    /** @type HTMLElement[] */
-    const selectedOptions = Array.from(this.querySelectorAll('select option[selected], fieldset input:checked'));
+    /** @type {HTMLElement[]} */
+    const selectedOptions = Array.from(
+      this.activeForm?.querySelectorAll('select option[selected], fieldset input:checked') ?? []
+    );
 
     return selectedOptions.map((option) => {
       const { optionValueId } = option.dataset;
@@ -497,6 +545,19 @@ export default class VariantPicker extends Component {
 
       return optionValueId;
     });
+  }
+
+  /**
+   * Returns the picker form displayed at the current viewport width.
+   * @returns {HTMLFormElement | null}
+   */
+  get activeForm() {
+    const context = window.matchMedia('(min-width: 750px)').matches ? 'desktop' : 'mobile';
+
+    return (
+      this.querySelector(`[data-variant-picker-form="${context}"]`) ??
+      this.querySelector('[data-variant-picker-form="all"]')
+    );
   }
 }
 
