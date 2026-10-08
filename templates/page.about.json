@@ -440,6 +440,28 @@
     "section_KkBH9k": {
       "type": "section",
       "blocks": {
+        "image_RtwNkJ": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/Photoroom_20260731_155207_8723e46b-01e3-47f1-82e0-1bd95d5109b1.png",
+            "link": "",
+            "image_ratio": "square",
+            "width": "fill",
+            "custom_width": 100,
+            "width_mobile": "fill",
+            "custom_width_mobile": 100,
+            "height": "fit",
+            "border": "none",
+            "border_width": 1,
+            "border_opacity": 100,
+            "border_radius": 0,
+            "padding-block-start": 0,
+            "padding-block-end": 0,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
+          },
+          "blocks": {}
+        },
         "group_fgmDKC": {
           "type": "group",
           "settings": {
@@ -448,7 +470,7 @@
             "horizontal_alignment": "flex-start",
             "vertical_alignment": "center",
             "align_baseline": false,
-            "horizontal_alignment_flex_direction_column": "flex-end",
+            "horizontal_alignment_flex_direction_column": "flex-start",
             "vertical_alignment_flex_direction_column": "center",
             "gap": 12,
             "width": "custom",
@@ -537,39 +559,17 @@
             "text_r9gjyF",
             "text_9VVEqL"
           ]
-        },
-        "image_RtwNkJ": {
-          "type": "image",
-          "settings": {
-            "image": "shopify://shop_images/Photoroom_20260731_155207_8723e46b-01e3-47f1-82e0-1bd95d5109b1.png",
-            "link": "",
-            "image_ratio": "square",
-            "width": "fill",
-            "custom_width": 100,
-            "width_mobile": "fill",
-            "custom_width_mobile": 100,
-            "height": "fit",
-            "border": "none",
-            "border_width": 1,
-            "border_opacity": 100,
-            "border_radius": 0,
-            "padding-block-start": 0,
-            "padding-block-end": 0,
-            "padding-inline-start": 0,
-            "padding-inline-end": 0
-          },
-          "blocks": {}
         }
       },
       "block_order": [
-        "group_fgmDKC",
-        "image_RtwNkJ"
+        "image_RtwNkJ",
+        "group_fgmDKC"
       ],
       "name": "t:names.image_with_text",
       "settings": {
         "content_direction": "row",
         "vertical_on_mobile": true,
-        "reverse_on_mobile": true,
+        "reverse_on_mobile": false,
         "mobile_text_alignment": "center",
         "horizontal_alignment": "flex-start",
         "vertical_alignment": "center",
@@ -599,28 +599,6 @@
     "section_hDazj4": {
       "type": "section",
       "blocks": {
-        "image_VT8Qdr": {
-          "type": "image",
-          "settings": {
-            "image": "shopify://shop_images/il_fullxfull.8126504154_sk2s_dc312dd2-4e8c-4596-9f84-fb7731c78e2e.jpg",
-            "link": "",
-            "image_ratio": "square",
-            "width": "fill",
-            "custom_width": 100,
-            "width_mobile": "fill",
-            "custom_width_mobile": 100,
-            "height": "fit",
-            "border": "none",
-            "border_width": 1,
-            "border_opacity": 100,
-            "border_radius": 0,
-            "padding-block-start": 0,
-            "padding-block-end": 0,
-            "padding-inline-start": 0,
-            "padding-inline-end": 0
-          },
-          "blocks": {}
-        },
         "group_minnRF": {
           "type": "group",
           "settings": {
@@ -629,7 +607,7 @@
             "horizontal_alignment": "flex-start",
             "vertical_alignment": "center",
             "align_baseline": false,
-            "horizontal_alignment_flex_direction_column": "flex-start",
+            "horizontal_alignment_flex_direction_column": "flex-end",
             "vertical_alignment_flex_direction_column": "center",
             "gap": 12,
             "width": "custom",
@@ -718,19 +696,41 @@
             "text_LU9cCh",
             "text_VFVj9L"
           ]
+        },
+        "image_VT8Qdr": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/il_fullxfull.8126504154_sk2s_dc312dd2-4e8c-4596-9f84-fb7731c78e2e.jpg",
+            "link": "",
+            "image_ratio": "square",
+            "width": "fill",
+            "custom_width": 100,
+            "width_mobile": "fill",
+            "custom_width_mobile": 100,
+            "height": "fit",
+            "border": "none",
+            "border_width": 1,
+            "border_opacity": 100,
+            "border_radius": 0,
+            "padding-block-start": 0,
+            "padding-block-end": 0,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
+          },
+          "blocks": {}
         }
       },
       "block_order": [
-        "image_VT8Qdr",
-        "group_minnRF"
+        "group_minnRF",
+        "image_VT8Qdr"
       ],
       "name": "t:names.image_with_text",
       "settings": {
         "content_direction": "row",
         "vertical_on_mobile": true,
-        "reverse_on_mobile": false,
+        "reverse_on_mobile": true,
         "mobile_text_alignment": "center",
-        "horizontal_alignment": "flex-start",
+        "horizontal_alignment": "flex-end",
         "vertical_alignment": "center",
         "align_baseline": false,
         "horizontal_alignment_flex_direction_column": "flex-start",
@@ -758,6 +758,28 @@
     "section_9UNALT": {
       "type": "section",
       "blocks": {
+        "image_VwLBBp": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/il_fullxfull.5161755651_90u6_7408edba-0607-4dc3-ad01-4de8428eb7bc.jpg",
+            "link": "",
+            "image_ratio": "square",
+            "width": "fill",
+            "custom_width": 100,
+            "width_mobile": "fill",
+            "custom_width_mobile": 100,
+            "height": "fit",
+            "border": "none",
+            "border_width": 1,
+            "border_opacity": 100,
+            "border_radius": 0,
+            "padding-block-start": 0,
+            "padding-block-end": 0,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
+          },
+          "blocks": {}
+        },
         "group_nDBnrJ": {
           "type": "group",
           "settings": {
@@ -766,7 +788,7 @@
             "horizontal_alignment": "flex-start",
             "vertical_alignment": "center",
             "align_baseline": false,
-            "horizontal_alignment_flex_direction_column": "flex-end",
+            "horizontal_alignment_flex_direction_column": "flex-start",
             "vertical_alignment_flex_direction_column": "center",
             "gap": 12,
             "width": "custom",
@@ -855,39 +877,17 @@
             "text_UkHPk8",
             "text_tETHti"
           ]
-        },
-        "image_VwLBBp": {
-          "type": "image",
-          "settings": {
-            "image": "shopify://shop_images/il_fullxfull.5161755651_90u6_7408edba-0607-4dc3-ad01-4de8428eb7bc.jpg",
-            "link": "",
-            "image_ratio": "square",
-            "width": "fill",
-            "custom_width": 100,
-            "width_mobile": "fill",
-            "custom_width_mobile": 100,
-            "height": "fit",
-            "border": "none",
-            "border_width": 1,
-            "border_opacity": 100,
-            "border_radius": 0,
-            "padding-block-start": 0,
-            "padding-block-end": 0,
-            "padding-inline-start": 0,
-            "padding-inline-end": 0
-          },
-          "blocks": {}
         }
       },
       "block_order": [
-        "group_nDBnrJ",
-        "image_VwLBBp"
+        "image_VwLBBp",
+        "group_nDBnrJ"
       ],
       "name": "t:names.image_with_text",
       "settings": {
         "content_direction": "row",
         "vertical_on_mobile": true,
-        "reverse_on_mobile": true,
+        "reverse_on_mobile": false,
         "mobile_text_alignment": "center",
         "horizontal_alignment": "flex-start",
         "vertical_alignment": "center",

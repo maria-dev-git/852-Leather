@@ -1,8 +1,12 @@
 
 
 {% liquid
-  assign section_collections = collections
   assign max_items = 20
+  assign section_collections = section.settings.collection_list
+
+  if section_collections == blank
+    assign section_collections = collections
+  endif
 %}
 
 <div class="section-background color-{{ section.settings.color_scheme }}"></div>
@@ -33,6 +37,8 @@
     {% assign section_collections = section_collections | split: ',' %}
   {% endif %}
 
+  {% assign collection_count = section_collections.size | at_most: max_items %}
+
   {% capture list_items %}
     {% for collection in section_collections limit: max_items %}
       <div class="resource-list__item">
@@ -54,7 +60,7 @@
     list_items_array: list_items_array,
     settings: section.settings,
     carousel_ref: 'mainCollectionList',
-    slide_count: max_items,
+    slide_count: collection_count,
     content_type: 'collections',
     test_id: 'collections-list-grid'
   %}
@@ -103,6 +109,12 @@
     {
       "type": "header",
       "content": "t:content.cards_layout"
+    },
+    {
+      "type": "collection_list",
+      "id": "collection_list",
+      "label": "t:settings.collection_list",
+      "limit": 20
     },
     {
       "type": "select",
