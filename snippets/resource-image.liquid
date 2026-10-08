@@ -9,6 +9,7 @@
   @param {string} parent_block_id - Parent block ID for CSS targeting
   @param {object} block_settings - Block settings object
   @param {object} [section_settings] - Section settings for layout-aware sizing
+  @param {boolean} [use_section_overlay] - Use the section's overlay settings instead of the image block's overlay
   @param {string} [block_attributes] - Block shopify attributes for theme editor
 
   @example
@@ -143,7 +144,9 @@
     "
     {{ block_attributes }}
   >
-    {%- if block_settings.toggle_overlay -%}
+    {%- if use_section_overlay and section_settings.toggle_overlay -%}
+      {% render 'overlay', settings: section_settings %}
+    {%- elsif block_settings.toggle_overlay -%}
       {% render 'overlay', settings: block_settings %}
     {%- endif -%}
 
@@ -171,7 +174,9 @@
     "
     {{ block_attributes }}
   >
-    {%- if block_settings.toggle_overlay -%}
+    {%- if use_section_overlay and section_settings.toggle_overlay -%}
+      {% render 'overlay', settings: section_settings %}
+    {%- elsif block_settings.toggle_overlay -%}
       {% render 'overlay', settings: block_settings %}
     {%- endif -%}
 
