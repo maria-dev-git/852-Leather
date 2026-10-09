@@ -7,7 +7,7 @@
 
 <div class="section-background color-{{ section.settings.color_scheme }}"></div>
 <div
-  class="section section--{{ section.settings.section_width }} color-{{ section.settings.color_scheme }}"
+  class="section section--{{ section.settings.section_width }}{% if section.settings.full_width_image_on_mobile %} section--mobile-image-full-width{% endif %}{% if section.settings.content_direction == 'row' and section.settings.vertical_on_mobile %} section--custom-mobile-padding{% endif %} color-{{ section.settings.color_scheme }}"
   data-testid="ui-test-section"
 
   {% if request.visual_preview_mode %}
@@ -26,6 +26,9 @@
     {% if section.settings.section_height != '' %}
      --section-preview-height: 600px;
      {% endif %}
+
+    --padding-block-start-mobile: {{ section.settings.padding-block-start-mobile | default: 0 }}px;
+    --padding-block-end-mobile: {{ section.settings.padding-block-end-mobile | default: 0 }}px;
   "
 >
   <div class="custom-section-background">
@@ -98,6 +101,18 @@
   }
 
   @media screen and (max-width: 749px) {
+    .section--custom-mobile-padding .section-content-wrapper {
+      padding-block: calc(var(--padding-block-start-mobile) + var(--section-top-offset, 0px))
+        var(--padding-block-end-mobile);
+    }
+
+    .section--mobile-image-full-width.section--page-width .section-content-wrapper > .image-block {
+      flex: 0 0 auto;
+      width: calc(100% + (var(--page-margin) * 2));
+      max-width: none;
+      margin-inline: calc(var(--page-margin) * -1);
+    }
+
     .section-content-wrapper--mobile-text-left,
     .section-content-wrapper--mobile-text-left .group-block-content {
       --horizontal-alignment: flex-start !important;

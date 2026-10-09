@@ -30,6 +30,9 @@
   style="
     {% render 'spacing-style', settings: section.settings %}
     {% render 'gap-style', value: section.settings.gap %}
+    {% if section.settings.collection_title_color != blank %}
+      --collection-title-color: {{ section.settings.collection_title_color }};
+    {% endif %}
   "
   data-testid="collection-list"
 >
@@ -371,6 +374,15 @@
       "id": "color_scheme",
       "label": "t:settings.color_scheme",
       "default": "scheme-1"
+    },
+    {
+      "type": "header",
+      "content": "t:names.collection_title"
+    },
+    {
+      "type": "color",
+      "id": "collection_title_color",
+      "label": "t:settings.color"
     },
     {
       "type": "header",

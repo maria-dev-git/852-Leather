@@ -169,6 +169,31 @@
     width: 100%;
   }
 
+  @media (any-pointer: fine) {
+    .collection-card:hover .collection-card__image > .overlay,
+    .collection-card:focus-within .collection-card__image > .overlay {
+      opacity: 0;
+    }
+
+    @media (prefers-reduced-motion: no-preference) {
+      .collection-card .collection-card__image > .overlay {
+        transition: opacity var(--animation-speed-slow) var(--animation-easing);
+      }
+    }
+  }
+
+  @media (any-pointer: coarse) {
+    .collection-card:active .collection-card__image > .overlay {
+      opacity: 0;
+    }
+
+    @media (prefers-reduced-motion: no-preference) {
+      .collection-card .collection-card__image > .overlay {
+        transition: opacity var(--animation-speed-slow) var(--animation-easing);
+      }
+    }
+  }
+
   .resource-list:not(.hidden--desktop) .collection-card--flexible-aspect-ratio {
     &.collection-card.collection-card--image-bg,
     &.collection-card .placeholder-svg {

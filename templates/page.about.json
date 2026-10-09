@@ -120,6 +120,7 @@
         "content_direction": "column",
         "vertical_on_mobile": true,
         "reverse_on_mobile": false,
+        "full_width_image_on_mobile": false,
         "mobile_text_alignment": "default",
         "horizontal_alignment": "flex-start",
         "vertical_alignment": "center",
@@ -143,11 +144,73 @@
         "overlay_style": "solid",
         "gradient_direction": "to top",
         "padding-block-start": 50,
-        "padding-block-end": 0
+        "padding-block-end": 0,
+        "padding-block-start-mobile": 0,
+        "padding-block-end-mobile": 0
       }
     },
     "hero_jqRUcb": {
       "type": "hero",
+      "blocks": {
+        "text_mPkKiY": {
+          "type": "text",
+          "name": "t:names.heading",
+          "settings": {
+            "text": "<h3>Welcome to 852 Leather!!&nbsp;</h3>",
+            "width": "fit-content",
+            "max_width": "normal",
+            "alignment": "left",
+            "type_preset": "rte",
+            "font": "var(--font-body--family)",
+            "font_size": "1rem",
+            "font_size_mobile": "",
+            "line_height": "normal",
+            "letter_spacing": "normal",
+            "case": "none",
+            "wrap": "pretty",
+            "color": "var(--color-foreground)",
+            "background": false,
+            "background_color": "#00000026",
+            "corner_radius": 0,
+            "padding-block-start": 0,
+            "padding-block-end": 0,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
+          },
+          "blocks": {}
+        },
+        "text_McfN7h": {
+          "type": "text",
+          "name": "t:names.text",
+          "settings": {
+            "text": "<h4>My name is Nicole Wiehle and I started 852 Leather in June of 2023. &nbsp;I started my small business for a couple reasons. I was tired of all the marketing schemes by larger leather companies, lack of quality and poor customer service. And, unlike some companies that claim to be USA based, 852Leather actually is!&nbsp;</h4>",
+            "width": "fit-content",
+            "max_width": "normal",
+            "alignment": "left",
+            "type_preset": "rte",
+            "font": "var(--font-body--family)",
+            "font_size": "1rem",
+            "font_size_mobile": "",
+            "line_height": "normal",
+            "letter_spacing": "normal",
+            "case": "none",
+            "wrap": "pretty",
+            "color": "var(--color-foreground)",
+            "background": false,
+            "background_color": "#00000026",
+            "corner_radius": 0,
+            "padding-block-start": 0,
+            "padding-block-end": 0,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
+          },
+          "blocks": {}
+        }
+      },
+      "block_order": [
+        "text_mPkKiY",
+        "text_McfN7h"
+      ],
       "name": "t:names.hero",
       "settings": {
         "media_type_1": "image",
@@ -173,8 +236,8 @@
         "section_height_custom": 50,
         "color_scheme": "scheme-4",
         "toggle_overlay": true,
-        "overlay_color": "#00000026",
-        "overlay_style": "gradient",
+        "overlay_color": "#00000047",
+        "overlay_style": "solid",
         "gradient_direction": "to top",
         "blurred_reflection": false,
         "reflection_opacity": 75,
@@ -246,11 +309,13 @@
         "text_J7GY78",
         "text_dwn3pN"
       ],
+      "disabled": true,
       "name": "t:names.rich_text_section",
       "settings": {
         "content_direction": "column",
         "vertical_on_mobile": true,
         "reverse_on_mobile": false,
+        "full_width_image_on_mobile": false,
         "mobile_text_alignment": "default",
         "horizontal_alignment": "flex-start",
         "vertical_alignment": "center",
@@ -274,7 +339,9 @@
         "overlay_style": "solid",
         "gradient_direction": "to top",
         "padding-block-start": 50,
-        "padding-block-end": 0
+        "padding-block-end": 0,
+        "padding-block-start-mobile": 0,
+        "padding-block-end-mobile": 0
       }
     },
     "section_Ja9H79": {
@@ -411,6 +478,7 @@
         "content_direction": "row",
         "vertical_on_mobile": true,
         "reverse_on_mobile": false,
+        "full_width_image_on_mobile": true,
         "mobile_text_alignment": "center",
         "horizontal_alignment": "flex-start",
         "vertical_alignment": "center",
@@ -434,7 +502,9 @@
         "overlay_style": "solid",
         "gradient_direction": "to top",
         "padding-block-start": 40,
-        "padding-block-end": 40
+        "padding-block-end": 40,
+        "padding-block-start-mobile": 0,
+        "padding-block-end-mobile": 0
       }
     },
     "section_KkBH9k": {
@@ -570,6 +640,7 @@
         "content_direction": "row",
         "vertical_on_mobile": true,
         "reverse_on_mobile": false,
+        "full_width_image_on_mobile": true,
         "mobile_text_alignment": "center",
         "horizontal_alignment": "flex-start",
         "vertical_alignment": "center",
@@ -592,8 +663,10 @@
         "overlay_color": "#00000026",
         "overlay_style": "solid",
         "gradient_direction": "to top",
-        "padding-block-start": 40,
-        "padding-block-end": 40
+        "padding-block-start": 80,
+        "padding-block-end": 40,
+        "padding-block-start-mobile": 0,
+        "padding-block-end-mobile": 40
       }
     },
     "section_hDazj4": {
@@ -729,6 +802,7 @@
         "content_direction": "row",
         "vertical_on_mobile": true,
         "reverse_on_mobile": true,
+        "full_width_image_on_mobile": true,
         "mobile_text_alignment": "center",
         "horizontal_alignment": "flex-end",
         "vertical_alignment": "center",
@@ -752,7 +826,9 @@
         "overlay_style": "solid",
         "gradient_direction": "to top",
         "padding-block-start": 40,
-        "padding-block-end": 40
+        "padding-block-end": 80,
+        "padding-block-start-mobile": 0,
+        "padding-block-end-mobile": 40
       }
     },
     "section_9UNALT": {
@@ -883,11 +959,13 @@
         "image_VwLBBp",
         "group_nDBnrJ"
       ],
+      "disabled": true,
       "name": "t:names.image_with_text",
       "settings": {
         "content_direction": "row",
         "vertical_on_mobile": true,
         "reverse_on_mobile": false,
+        "full_width_image_on_mobile": true,
         "mobile_text_alignment": "center",
         "horizontal_alignment": "flex-start",
         "vertical_alignment": "center",
@@ -911,7 +989,107 @@
         "overlay_style": "solid",
         "gradient_direction": "to top",
         "padding-block-start": 40,
-        "padding-block-end": 40
+        "padding-block-end": 40,
+        "padding-block-start-mobile": 0,
+        "padding-block-end-mobile": 0
+      }
+    },
+    "hero_T6b3Pd": {
+      "type": "hero",
+      "blocks": {
+        "text_mjwKbD": {
+          "type": "text",
+          "name": "t:names.heading",
+          "settings": {
+            "text": "<p>To My Customers...</p>",
+            "width": "fit-content",
+            "max_width": "normal",
+            "alignment": "left",
+            "type_preset": "h3",
+            "font": "var(--font-body--family)",
+            "font_size": "1rem",
+            "font_size_mobile": "",
+            "line_height": "normal",
+            "letter_spacing": "normal",
+            "case": "none",
+            "wrap": "pretty",
+            "color": "var(--color-foreground)",
+            "background": false,
+            "background_color": "#00000026",
+            "corner_radius": 0,
+            "padding-block-start": 0,
+            "padding-block-end": 0,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
+          },
+          "blocks": {}
+        },
+        "text_wBDD68": {
+          "type": "text",
+          "name": "t:names.text",
+          "settings": {
+            "text": "<h4>852 Leather is 3 years old and I cannot tell you how much I have enjoyed making beautiful bags over the last three years. I just want to thank all of you for all of your kind words, orders and support.</h4><h4>- Nicole Wiehle, Founder</h4>",
+            "width": "fit-content",
+            "max_width": "normal",
+            "alignment": "left",
+            "type_preset": "rte",
+            "font": "var(--font-body--family)",
+            "font_size": "1rem",
+            "font_size_mobile": "",
+            "line_height": "normal",
+            "letter_spacing": "normal",
+            "case": "none",
+            "wrap": "pretty",
+            "color": "var(--color-foreground)",
+            "background": false,
+            "background_color": "#00000026",
+            "corner_radius": 0,
+            "padding-block-start": 0,
+            "padding-block-end": 0,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
+          },
+          "blocks": {}
+        }
+      },
+      "block_order": [
+        "text_mjwKbD",
+        "text_wBDD68"
+      ],
+      "name": "t:names.hero",
+      "settings": {
+        "media_type_1": "image",
+        "image_1": "shopify://shop_images/il_fullxfull.5161755651_90u6_7408edba-0607-4dc3-ad01-4de8428eb7bc.jpg",
+        "media_type_2": "image",
+        "stack_media_on_mobile": false,
+        "custom_mobile_media": false,
+        "media_type_1_mobile": "image",
+        "media_type_2_mobile": "image",
+        "link": "",
+        "open_in_new_tab": false,
+        "content_direction": "column",
+        "vertical_on_mobile": true,
+        "horizontal_alignment": "flex-start",
+        "vertical_alignment": "center",
+        "align_baseline": false,
+        "horizontal_alignment_flex_direction_column": "center",
+        "vertical_alignment_flex_direction_column": "center",
+        "gap": 16,
+        "section_width": "page-width",
+        "constrain_section_width": false,
+        "section_height": "medium",
+        "section_height_custom": 50,
+        "color_scheme": "scheme-4",
+        "toggle_overlay": true,
+        "overlay_color": "#00000047",
+        "overlay_style": "solid",
+        "gradient_direction": "to top",
+        "blurred_reflection": false,
+        "reflection_opacity": 75,
+        "padding-block-start": 40,
+        "padding-block-end": 40,
+        "padding-inline-start": 0,
+        "padding-inline-end": 0
       }
     }
   },
@@ -923,6 +1101,7 @@
     "section_Ja9H79",
     "section_KkBH9k",
     "section_hDazj4",
-    "section_9UNALT"
+    "section_9UNALT",
+    "hero_T6b3Pd"
   ]
 }
