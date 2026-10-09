@@ -947,7 +947,7 @@
     display: grid;
     width: 100%;
     grid-template-columns: 1fr 1fr;
-    gap: var(--padding-sm);
+    gap: 1px;
     padding-inline-end: var(--menu-drawer-inline-padding);
     padding-block-start: var(--padding-xs);
   }
@@ -1131,6 +1131,33 @@
     object-fit: cover;
   }
 
+  .menu-drawer__menu--grid > .menu-drawer__list-item > .menu-drawer__menu-item {
+    position: relative;
+  }
+
+  .menu-drawer__menu--grid > .menu-drawer__list-item > .menu-drawer__menu-item::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: var(--layer-flat);
+    background: #0000005e;
+    border-radius: var(--menu-image-border-radius);
+    pointer-events: none;
+  }
+
+  .menu-drawer__menu--grid > .menu-drawer__list-item > .menu-drawer__menu-item > .menu-drawer__menu-item-text {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: var(--layer-raised);
+    width: 100%;
+    padding: var(--padding-sm);
+    color: var(--color-white);
+    text-align: center;
+  }
+
   /* Fix alignment for collection image mode links without images in drawer */
 
   /* Target menu items in grids that have images */
@@ -1183,6 +1210,10 @@
   .menu-drawer__menu-item-text {
     overflow: hidden;
     text-overflow: ellipsis;
+  }
+
+  span.menu-drawer__menu-item-text {
+    font-size: 18px;
   }
 
   /** Styles when the country selector is hidden */

@@ -183,7 +183,7 @@
           "type": "text",
           "name": "t:names.text",
           "settings": {
-            "text": "<h4>My name is Nicole Wiehle and I started 852 Leather in June of 2023. &nbsp;I started my small business for a couple reasons. I was tired of all the marketing schemes by larger leather companies, lack of quality and poor customer service. And, unlike some companies that claim to be USA based, 852Leather actually is!&nbsp;</h4>",
+            "text": "<h4>My name is Nicole Wiehle and I started 852 Leather in June of 2023. &nbsp;<br/>I started my small business for a couple reasons. I was tired of all the marketing schemes by larger leather companies, lack of quality and poor customer service. And, unlike some companies that claim to be USA based, 852Leather actually is!&nbsp;</h4>",
             "width": "fit-content",
             "max_width": "normal",
             "alignment": "left",
@@ -231,12 +231,12 @@
         "vertical_alignment_flex_direction_column": "center",
         "gap": 16,
         "section_width": "page-width",
-        "constrain_section_width": false,
+        "constrain_section_width": true,
         "section_height": "medium",
         "section_height_custom": 50,
         "color_scheme": "scheme-4",
         "toggle_overlay": true,
-        "overlay_color": "#00000047",
+        "overlay_color": "#0000005E",
         "overlay_style": "solid",
         "gradient_direction": "to top",
         "blurred_reflection": false,
@@ -639,7 +639,7 @@
       "settings": {
         "content_direction": "row",
         "vertical_on_mobile": true,
-        "reverse_on_mobile": false,
+        "reverse_on_mobile": true,
         "full_width_image_on_mobile": true,
         "mobile_text_alignment": "center",
         "horizontal_alignment": "flex-start",
@@ -665,8 +665,8 @@
         "gradient_direction": "to top",
         "padding-block-start": 80,
         "padding-block-end": 40,
-        "padding-block-start-mobile": 0,
-        "padding-block-end-mobile": 40
+        "padding-block-start-mobile": 40,
+        "padding-block-end-mobile": 0
       }
     },
     "section_hDazj4": {
@@ -1076,12 +1076,12 @@
         "vertical_alignment_flex_direction_column": "center",
         "gap": 16,
         "section_width": "page-width",
-        "constrain_section_width": false,
+        "constrain_section_width": true,
         "section_height": "medium",
         "section_height_custom": 50,
         "color_scheme": "scheme-4",
         "toggle_overlay": true,
-        "overlay_color": "#00000047",
+        "overlay_color": "#0000005E",
         "overlay_style": "solid",
         "gradient_direction": "to top",
         "blurred_reflection": false,

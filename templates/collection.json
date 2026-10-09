@@ -61,6 +61,7 @@
         "content_direction": "column",
         "vertical_on_mobile": true,
         "reverse_on_mobile": false,
+        "full_width_image_on_mobile": false,
         "mobile_text_alignment": "default",
         "horizontal_alignment": "flex-start",
         "vertical_alignment": "center",
@@ -84,7 +85,9 @@
         "overlay_style": "solid",
         "gradient_direction": "to top",
         "padding-block-start": 40,
-        "padding-block-end": 0
+        "padding-block-end": 0,
+        "padding-block-start-mobile": 0,
+        "padding-block-end-mobile": 0
       }
     },
     "main": {
